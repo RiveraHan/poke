@@ -6,12 +6,15 @@ import {
   Image,
 } from 'react-native';
 import React from 'react';
+import getColorByPokemonType from '../utils/getColorByPokemonType';
 
 type Props = {
   pokemon: PokemonDetail;
 };
 
 export default function PokemonCard({pokemon}: Props): JSX.Element {
+  const pokemonColor = getColorByPokemonType(pokemon.type);
+  const bgStyles = {backgroundColor: pokemonColor, ...styles.bgStyles};
   const handleGotoPokemon = () => {
     console.log('handleGotoPokemon', pokemon);
   };
@@ -19,7 +22,7 @@ export default function PokemonCard({pokemon}: Props): JSX.Element {
     <TouchableWithoutFeedback onPress={handleGotoPokemon}>
       <View style={styles.card}>
         <View style={styles.spacing}>
-          <View style={styles.bgStyles}>
+          <View style={bgStyles}>
             <Text style={styles.number}>
               #{`${pokemon.order}`.padStart(2, '0')}
             </Text>
@@ -42,7 +45,9 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   bgStyles: {
-    backgroundColor: 'grey',
+    flex: 1,
+    borderRadius: 15,
+    padding: 10,
   },
   number: {
     position: 'absolute',
@@ -56,6 +61,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 15,
     paddingTop: 10,
+    textTransform: 'capitalize',
   },
   img: {
     position: 'absolute',
