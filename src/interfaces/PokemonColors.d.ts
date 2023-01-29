@@ -1,6 +1,6 @@
 interface Colors {
-  normal: stringing;
-  fighting: stringing;
+  normal: string;
+  fighting: string;
   flying: string;
   poison: string;
   ground: string;
