@@ -1,7 +1,8 @@
-import {View, Text} from 'react-native';
+import {ScrollView} from 'react-native';
 import React, {useContext, useEffect} from 'react';
 import {useRoute, useNavigation, RouteProp} from '@react-navigation/native';
 import {PokemonContext} from '../context/PokemonProvider';
+import PokemonHeader from '../components/PokemonHeader';
 
 type ParamList = {
   Pokemon: {
@@ -17,22 +18,21 @@ export default function PokemonScreen() {
   const {id} = route.params;
 
   useEffect(() => {
-    detailsPokemon(id);
-    if (pokemonDetail === undefined) {
-      navigate.goBack();
-    }
-    console.log(pokemonDetail);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pokemonDetail]);
+    (async () => {
+      await detailsPokemon(id);
+      if (pokemonDetail === undefined) {
+        navigate.goBack();
+      }
+    })();
+  }, [id, detailsPokemon, pokemonDetail, navigate]);
 
-  if (pokemonDetail === undefined) {
+  if (!pokemonDetail) {
     return null;
   }
 
   return (
-    <View>
-      <Text>PokemonScreen</Text>
-      <Text>{pokemonDetail.name}</Text>
-    </View>
+    <ScrollView>
+      <PokemonHeader pokemonDetail={pokemonDetail} />
+    </ScrollView>
   );
 }

@@ -15,5 +15,5 @@ interface PokemonContextProps {
   nextURL: string;
   pokemonDetail: PokemonDetail | undefined;
   loadPokemons: () => void;
-  detailsPokemon: (id: number) => void;
+  detailsPokemon: (id: number) => Promise<void>;
 }

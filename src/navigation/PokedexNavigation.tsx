@@ -1,7 +1,12 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import type {StackNavigationOptions} from '@react-navigation/stack';
 import PokedexScreen from '../screens/PokedexScreen';
 import PokemonScreen from '../screens/PokemonScreen';
+
+const options: StackNavigationOptions = {
+  headerShown: false,
+};
 
 const Stack = createStackNavigator();
 
@@ -11,11 +16,13 @@ export default function PokedexNavigation() {
       <Stack.Screen
         name="Pokedex"
         component={PokedexScreen}
-        options={{
-          headerShown: false,
-        }}
+        options={options}
       />
-      <Stack.Screen name="Pokemon" component={PokemonScreen} />
+      <Stack.Screen
+        name="Pokemon"
+        component={PokemonScreen}
+        options={options}
+      />
     </Stack.Navigator>
   );
 }
