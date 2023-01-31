@@ -12,6 +12,7 @@ export const PokemonContext = createContext<PokemonContextProps>(
 
 const PokemonProvider = ({children}: Props) => {
   const [pokemons, setPokemons] = useState<PokemonDetail[]>([]);
+  const [nextURL, setNextURL] = useState<string>('');
 
   useEffect(() => {
     (async () => {
@@ -22,9 +23,12 @@ const PokemonProvider = ({children}: Props) => {
 
   const loadPokemons = async () => {
     try {
-      const response = await http.get<PokemonType>(
-        'https://pokeapi.co/api/v2/pokemon?limit=10&offset=0',
-      );
+      const url =
+        nextURL || 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0';
+
+      const response = await http.get<PokemonType>(url);
+      setNextURL(response.next);
+
       const pokeArray: PokemonDetail[] = [];
       for await (let pokemon of response.results) {
         const pokemonDetails = await http.get<PokemonDetails>(pokemon.url);
@@ -37,13 +41,14 @@ const PokemonProvider = ({children}: Props) => {
         });
       }
       setPokemons([...pokemons, ...pokeArray]);
+      console.log(response);
     } catch (error) {
       return console.error(error);
     }
   };
   return (
     // eslint-disable-next-line react/react-in-jsx-scope
-    <PokemonContext.Provider value={{pokemons}}>
+    <PokemonContext.Provider value={{pokemons, loadPokemons, nextURL}}>
       {children}
     </PokemonContext.Provider>
   );
