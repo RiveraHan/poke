@@ -4,8 +4,10 @@ interface PokemonDetail {
   type: string;
   order: number;
   img: string;
+  typeAbility: Type[];
 }
 
+type typeAbilityPokemon = Pick<PokemonDetails, ''>;
 interface PokemonDetails {
   abilities: Ability2[];
   base_experience: number;

@@ -3,6 +3,7 @@ import React, {useContext, useEffect} from 'react';
 import {useRoute, useNavigation, RouteProp} from '@react-navigation/native';
 import {PokemonContext} from '../context/PokemonProvider';
 import PokemonHeader from '../components/PokemonHeader';
+import PokemonType from '../components/PokemonType';
 
 type ParamList = {
   Pokemon: {
@@ -33,6 +34,7 @@ export default function PokemonScreen() {
   return (
     <ScrollView>
       <PokemonHeader pokemonDetail={pokemonDetail} />
+      <PokemonType typeAbility={pokemonDetail.typeAbility} />
     </ScrollView>
   );
 }

@@ -39,6 +39,7 @@ const PokemonProvider = ({children}: Props) => {
           id: pokemonDetails.id,
           name: pokemonDetails.name,
           type: pokemonDetails.types[0].type.name,
+          typeAbility: pokemonDetails.types,
           order: pokemonDetails.order,
           img: pokemonDetails.sprites.other['official-artwork'].front_default,
         });
