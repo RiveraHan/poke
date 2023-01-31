@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import getColorByPokemonType from '../utils/getColorByPokemonType';
+import {useNavigation} from '@react-navigation/native';
 
 type Props = {
   pokemon: PokemonDetail;
@@ -14,10 +15,15 @@ type Props = {
 
 export default function PokemonCard({pokemon}: Props): JSX.Element {
   const pokemonColor = getColorByPokemonType(pokemon.type);
+
   const bgStyles = {backgroundColor: pokemonColor, ...styles.bgStyles};
+
+  const navigation = useNavigation();
+
   const handleGotoPokemon = () => {
-    console.log('handleGotoPokemon', pokemon);
+    navigation.navigate('Pokemon', {id: pokemon.id});
   };
+
   return (
     <TouchableWithoutFeedback onPress={handleGotoPokemon}>
       <View style={styles.card}>

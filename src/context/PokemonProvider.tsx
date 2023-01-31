@@ -12,6 +12,9 @@ export const PokemonContext = createContext<PokemonContextProps>(
 
 const PokemonProvider = ({children}: Props) => {
   const [pokemons, setPokemons] = useState<PokemonDetail[]>([]);
+  const [pokemonDetail, setPokemonDetail] = useState<PokemonDetail | undefined>(
+    {} as PokemonDetail,
+  );
   const [nextURL, setNextURL] = useState<string>('');
 
   useEffect(() => {
@@ -41,14 +44,23 @@ const PokemonProvider = ({children}: Props) => {
         });
       }
       setPokemons([...pokemons, ...pokeArray]);
-      console.log(response);
     } catch (error) {
       return console.error(error);
     }
   };
+
+  const detailsPokemon = async (id: number) => {
+    try {
+      const response = await pokemons.find(pokemon => pokemon.id === id);
+      setPokemonDetail(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     // eslint-disable-next-line react/react-in-jsx-scope
-    <PokemonContext.Provider value={{pokemons, loadPokemons, nextURL}}>
+    <PokemonContext.Provider
+      value={{pokemons, nextURL, pokemonDetail, loadPokemons, detailsPokemon}}>
       {children}
     </PokemonContext.Provider>
   );

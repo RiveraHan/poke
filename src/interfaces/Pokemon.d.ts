@@ -13,5 +13,7 @@ interface Result {
 interface PokemonContextProps {
   pokemons: PokemonDetail[];
   nextURL: string;
+  pokemonDetail: PokemonDetail | undefined;
   loadPokemons: () => void;
+  detailsPokemon: (id: number) => void;
 }
