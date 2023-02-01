@@ -1,7 +1,7 @@
 import {FlatList, StyleSheet, ActivityIndicator, Platform} from 'react-native';
 import React, {useContext} from 'react';
 import PokemonCard from './PokemonCard';
-import {PokemonContext} from '../context/PokemonProvider';
+import {PokemonContext} from '../../context/PokemonProvider';
 
 type Props = {
   pokemons: PokemonDetail[];

@@ -2,9 +2,9 @@ import {ScrollView} from 'react-native';
 import React, {useContext, useEffect} from 'react';
 import {useRoute, useNavigation, RouteProp} from '@react-navigation/native';
 import {PokemonContext} from '../context/PokemonProvider';
-import PokemonHeader from '../components/PokemonHeader';
-import PokemonType from '../components/PokemonType';
-import PokemonStats from '../components/PokemonStats';
+import PokemonHeader from '../components/pokemon/PokemonHeader';
+import PokemonType from '../components/pokemon/PokemonType';
+import PokemonStats from '../components/pokemon/PokemonStats';
 
 type ParamList = {
   Pokemon: {

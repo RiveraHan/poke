@@ -7,7 +7,7 @@ import {
   Image,
   ActivityIndicator,
 } from 'react-native';
-import getColorByPokemonType from '../utils/getColorByPokemonType';
+import getColorByPokemonType from '../../utils/getColorByPokemonType';
 
 type pokemonType = {
   pokemonDetail: PokemonDetail;

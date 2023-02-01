@@ -6,7 +6,7 @@ import {
   Image,
 } from 'react-native';
 import React from 'react';
-import getColorByPokemonType from '../utils/getColorByPokemonType';
+import getColorByPokemonType from '../../utils/getColorByPokemonType';
 import {useNavigation} from '@react-navigation/native';
 
 type Props = {

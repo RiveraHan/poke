@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import getColorByPokemonType from '../utils/getColorByPokemonType';
+import getColorByPokemonType from '../../utils/getColorByPokemonType';
 
 type Props = {
   typeAbility: Type[];

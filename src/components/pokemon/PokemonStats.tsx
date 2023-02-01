@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-import {barStyles} from '../utils/barStyles';
+import {barStyles} from '../../utils/barStyles';
 
 type Props = {
   statistics: Stat[];

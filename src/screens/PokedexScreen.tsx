@@ -1,6 +1,6 @@
 import {SafeAreaView, ActivityIndicator, StyleSheet} from 'react-native';
 import React, {useContext} from 'react';
-import PokemonList from '../components/PokemonList';
+import PokemonList from '../components/pokemon/PokemonList';
 import {PokemonContext} from '../context/PokemonProvider';
 
 export default function PokedexScreen(): JSX.Element {
