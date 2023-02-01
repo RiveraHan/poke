@@ -5,6 +5,7 @@ interface PokemonDetail {
   order: number;
   img: string;
   typeAbility: Type[];
+  statistics: Stat[];
 }
 
 type typeAbilityPokemon = Pick<PokemonDetails, ''>;

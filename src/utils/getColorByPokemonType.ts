@@ -1,4 +1,4 @@
-import {POKEMON_COLORS} from '../resources/PokemonColors';
+import {POKEMON_COLORS} from '../resources/pokemonColors';
 
 const getColorByPokemonType = (type: string): string => {
   const colors: Colors = POKEMON_COLORS;

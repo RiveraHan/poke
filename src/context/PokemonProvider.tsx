@@ -42,6 +42,7 @@ const PokemonProvider = ({children}: Props) => {
           typeAbility: pokemonDetails.types,
           order: pokemonDetails.order,
           img: pokemonDetails.sprites.other['official-artwork'].front_default,
+          statistics: pokemonDetails.stats,
         });
       }
       setPokemons([...pokemons, ...pokeArray]);

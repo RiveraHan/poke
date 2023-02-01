@@ -24,7 +24,8 @@ export default function PokemonType({typeAbility}: Props) {
 }
 const styles = StyleSheet.create({
   content: {
-    marginTop: 70,
+    marginTop: 60,
+    marginBottom: 60,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

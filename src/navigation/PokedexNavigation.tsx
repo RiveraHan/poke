@@ -5,7 +5,9 @@ import PokedexScreen from '../screens/PokedexScreen';
 import PokemonScreen from '../screens/PokemonScreen';
 
 const options: StackNavigationOptions = {
-  headerShown: false,
+  title: '',
+  headerTransparent: true,
+  headerTintColor: '#fff',
 };
 
 const Stack = createStackNavigator();

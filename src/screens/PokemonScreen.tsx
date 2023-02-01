@@ -4,6 +4,7 @@ import {useRoute, useNavigation, RouteProp} from '@react-navigation/native';
 import {PokemonContext} from '../context/PokemonProvider';
 import PokemonHeader from '../components/PokemonHeader';
 import PokemonType from '../components/PokemonType';
+import PokemonStats from '../components/PokemonStats';
 
 type ParamList = {
   Pokemon: {
@@ -35,6 +36,7 @@ export default function PokemonScreen() {
     <ScrollView>
       <PokemonHeader pokemonDetail={pokemonDetail} />
       <PokemonType typeAbility={pokemonDetail.typeAbility} />
+      <PokemonStats statistics={pokemonDetail.statistics} />
     </ScrollView>
   );
 }

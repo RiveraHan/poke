@@ -39,7 +39,7 @@ export default function PokemonHeader({
           <SafeAreaView style={styles.content}>
             <View style={styles.header}>
               <Text style={styles.name}>{name}</Text>
-              <Text style={styles.order}>#{`${order}`.padStart(3, '0')}</Text>
+              <Text style={styles.order}>#{`${order}`.padStart(2, '0')}</Text>
             </View>
             <View style={styles.contentImg}>
               <Image source={{uri: img}} style={styles.image} />
