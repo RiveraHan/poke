@@ -9,11 +9,11 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
   if [ "$emulator" = "android" ]; then
     cd "$project_root"
-    konsole --hold -e "npx react-native run-android" &
+    konsole -e "npx react-native run-android" &
     npx react-native start
   elif [ "$emulator" = "ios" ]; then
     cd "$project_root"
-    konsole --hold -e "npx react-native run-ios" &
+    konsole -e "npx react-native run-ios" &
     npx react-native start
   else
     echo "Invalid option. Please try again."
