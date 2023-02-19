@@ -8,6 +8,8 @@ Run `npm install` to install the required packages.
 
 In the project directory, you can run:
 
+Run script (Linux and Mac) start.sh in your console `./start.sh` or run:
+
 ### `npm start`
 
 Runs the app in the development mode.<br />
